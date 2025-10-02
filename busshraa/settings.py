@@ -113,14 +113,22 @@ USE_TZ = True
 
 
 # ========================
-# الملفات الثابتة
+# الملفات الثابتة والوسائط
 # ========================
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# ملفات static (CSS, JS, Images)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]   # الملفات أثناء التطوير
+STATIC_ROOT = BASE_DIR / "staticfiles"     # عند استخدام collectstatic
+
+# ملفات media (التي يرفعها المستخدم)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / "media"
 
 
 # ========================
 # الإعدادات الأخرى
 # ========================
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
