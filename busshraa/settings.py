@@ -9,8 +9,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+# ========================
+# التطبيقات
+# ========================
 INSTALLED_APPS = [
-    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -18,13 +20,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    
+    # تطبيقات المشروع
     'accounts',
     'shop',
     'dashboard',
 ]
 
 
+# ========================
+# Middleware
+# ========================
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -36,13 +41,20 @@ MIDDLEWARE = [
 ]
 
 
+# ========================
+# روابط المشروع
+# ========================
 ROOT_URLCONF = 'busshraa.urls'
 
 
+# ========================
+# القوالب
+# ========================
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],   # تقدر تضيف هنا مسار templates لاحقاً
+        # تعريف مجلد القوالب الرئيسي
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -54,9 +66,16 @@ TEMPLATES = [
     },
 ]
 
+
+# ========================
+# WSGI
+# ========================
 WSGI_APPLICATION = 'busshraa.wsgi.application'
 
 
+# ========================
+# قاعدة البيانات
+# ========================
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -65,6 +84,9 @@ DATABASES = {
 }
 
 
+# ========================
+# إعدادات كلمات المرور
+# ========================
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -81,11 +103,24 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LANGUAGE_CODE = 'ar'  
-TIME_ZONE = 'Asia/Riyadh'  
+# ========================
+# اللغة والتوقيت
+# ========================
+LANGUAGE_CODE = 'ar'
+TIME_ZONE = 'Asia/Riyadh'
 USE_I18N = True
 USE_TZ = True
 
-STATIC_URL = 'static/'
 
+# ========================
+# الملفات الثابتة
+# ========================
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+
+# ========================
+# الإعدادات الأخرى
+# ========================
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
