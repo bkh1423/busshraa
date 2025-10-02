@@ -2,8 +2,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from . import views   # استدعاء الملف views
 
 urlpatterns = [
+    # الصفحة الرئيسية
+    path('', views.home, name='home'),
+
     # لوحة التحكم الافتراضية
     path('admin/', admin.site.urls),
 
@@ -13,7 +17,7 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),
 ]
 
-# إضافة دعم عرض ملفات static و media أثناء التطوير
+# عرض static و media في وضع التطوير
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
