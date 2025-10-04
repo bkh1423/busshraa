@@ -1,5 +1,6 @@
 from django.urls import path
+from . import views
 
 urlpatterns = [
-    # هنا تضيف المسارات الخاصة بلوحة التحكم لاحقًا
+    path('', views.dashboard_home, name='dashboard_home'),
 ]

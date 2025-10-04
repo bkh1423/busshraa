@@ -1,5 +1,7 @@
 from django.urls import path
+from . import views
 
 urlpatterns = [
-    # هنا تضيف المسارات الخاصة بتطبيق الحسابات لاحقًا
+    path('', views.accounts_home, name='accounts_home'),
 ]
+
